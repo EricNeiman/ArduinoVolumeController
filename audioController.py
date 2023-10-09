@@ -57,7 +57,7 @@ def rotaryEncoderHandler(encoderIndex, encoderState, inputIndex):
             else:
                 if (previousVolume[encoderIndex] > 0.0):
                     previousVolume[encoderIndex] -= digitalVolumeIncrement
-            setDigitalVolume(previousVolume[encoderIndex], apps[encoderIndex])
+            setVolume(previousVolume[encoderIndex], apps[encoderIndex])
             previousEncoder[encoderIndex][0] = clk
             previousEncoder[encoderIndex][1] = dt
         if (sw != previousEncoder[encoderIndex][2]):
@@ -73,10 +73,11 @@ def rotaryEncoderHandler(encoderIndex, encoderState, inputIndex):
         print("rotaryEncoderHandler error:")
         print(e)
 
-def potentiometerHandler(encoderIndex, encoderState):
+def potentiometerHandler(potentiometerIndex, potentiometerState):
     try:
-        potentiometerSet = int(encoderIndex.split(" ")[1])
-
+        if (previousVolume[potentiometerIndex] != float(potentiometerState)):
+            previousVolume[potentiometerIndex] = float(potentiometerState)
+            setVolume(previousVolume[potentiometerIndex], apps[potentiometerIndex])
     except Exception as e:
         print("rotaryEncoderHandler error:")
         print(e)
@@ -97,24 +98,13 @@ def setMute(muteIn, applicationNames):
         print("setMute error:")
         print(e)
 
-def setDigitalVolume(volumeIn, applicationNames):
+def setVolume(volumeIn, applicationNames):
     try:
         for i in applicationNames:
             print("Setting volume to " + str(round(volumeIn, 2)) + " for " + i)
             sessionVolume = getSessionVolume(i)
             if (sessionVolume != None):
                 sessionVolume.SetMasterVolume(volumeIn, None)
-    except Exception as e:
-        print("setDigitalVolume error:")
-        print(e)
-
-def setAnalogVolume(volumeIn, applicationNames):
-    try:
-        for i in applicationNames:
-            print("Setting volume to " + str(volumeIn) + " for " + i)
-            volume = getSessionVolume(applicationNames[i])
-            volume.SetMasterVolume(volumeIn, None)
-            break
     except Exception as e:
         print("setVolume error:")
         print(e)
