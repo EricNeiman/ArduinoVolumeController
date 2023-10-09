@@ -73,10 +73,10 @@ void loop() {
     previousClk3 = clk3;
     previousDt3 = dt3;
     previousSw3 = sw3;
-    String r1 = String(clk1) + " " + String(dt1) + " " + String(sw1);
-    String s = String(s1) + " " + String(s2) + " " + String(s3);
-    String r2 = String(clk2) + " " + String(dt2) + " " + String(sw2);
-    String r3 = String(clk3) + " " + String(dt3) + " " + String(sw3);
+    String s = "S 1:" + String(s1) + " " + String(s2) + " " + String(s3);
+    String r1 = "RE 1:" + String(clk1) + " " + String(dt1) + " " + String(sw1);
+    String r2 = "RE 2:" + String(clk2) + " " + String(dt2) + " " + String(sw2);
+    String r3 = "RE 3:" + String(clk3) + " " + String(dt3) + " " + String(sw3);
 
     Serial.println(s + " | " + r1 + " | " + r2 + " | " + r3);
   }
