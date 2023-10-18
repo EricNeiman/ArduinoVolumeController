@@ -3,7 +3,7 @@ import serial.tools.list_ports
 import time
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 import win32api
-from win32con import VK_MEDIA_NEXT_TRACK, VK_MEDIA_PLAY_PAUSE, VK_MEDIA_PREV_TRACK, KEYEVENTF_EXTENDEDKEY, KEYEVENTF_KEYUP, VK_VOLUME_UP, VK_VOLUME_DOWN, VK_VOLUME_MUTE
+from win32con import VK_MEDIA_NEXT_TRACK, VK_MEDIA_PLAY_PAUSE, VK_MEDIA_PREV_TRACK, KEYEVENTF_EXTENDEDKEY, KEYEVENTF_KEYUP, VK_VOLUME_UP, VK_VOLUME_DOWN, VK_VOLUME_MUTE, VK_F5
 from ctypes import cast, POINTER
 from comtypes import CLSCTX_ALL
 
@@ -54,7 +54,7 @@ def buttonHandler(buttonIndex, buttonState):
             elif (buttonIndex == 7):
                 win32api.keybd_event(VK_MEDIA_NEXT_TRACK, 0, KEYEVENTF_EXTENDEDKEY, 0)
             elif (buttonIndex == 8):
-                win32api.keybd_event(VK_MEDIA_PLAY_PAUSE, 0, KEYEVENTF_EXTENDEDKEY, 0)
+                win32api.keybd_event(VK_F5, 0, KEYEVENTF_EXTENDEDKEY, 0)
     except Exception as e:
         print("buttonHandler error:")
         print(e)
