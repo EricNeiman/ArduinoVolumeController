@@ -4,8 +4,6 @@ import time
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 import win32api
 from win32con import VK_MEDIA_NEXT_TRACK, VK_MEDIA_PLAY_PAUSE, VK_MEDIA_PREV_TRACK, KEYEVENTF_EXTENDEDKEY, KEYEVENTF_KEYUP, VK_VOLUME_UP, VK_VOLUME_DOWN, VK_VOLUME_MUTE, VK_F5
-from ctypes import cast, POINTER
-from comtypes import CLSCTX_ALL
 
 serialPort = None
 
