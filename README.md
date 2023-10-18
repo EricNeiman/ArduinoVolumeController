@@ -11,10 +11,12 @@ The Arduino is assumed to have three toggle switches and 3 potentiometers connec
 > Python 3.7.4 was used for this project and is necessary to run the script. The following packages are also required:
 > - `pyserial`
 > - `pycaw`
+> - `pywin32`
 
 > To install the packages, run the following commands in the terminal:
 > - `pip install pyserial`
 > - `pip install pycaw`
+> - `pip install pywin32`
 
 ### Windows
 > The script was tested on Windows 10, but should work on Windows 7, 8, and 11 as well. The script uses the Windows Core Audio API to control the volume of the applications. The script will not work on Linux or Mac.
